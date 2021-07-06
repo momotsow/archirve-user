@@ -1,0 +1,59 @@
+@import 'bulma';
+
+:root {
+  --bg: #06315F;
+  --nav-bg: #041221;
+  --div-bg: #0b59ad;
+  --font-color1: #fafaff;
+  --font-color2: #52b7ff;
+  overflow-y: hidden;
+}
+
+body {
+  background: var(--bg);
+  height: 100vh;
+}
+
+input::placeholder {
+  color: antiquewhite;
+}
+
+.columns {
+  margin-top: 20px;
+}
+
+.navbar {
+  background: var(--nav-bg);
+}
+
+.navbar-item {
+  color: var(--font-color1);
+}
+
+.fa {
+  color: var(--font-color1);
+  margin: 10px
+}
+
+.user-profile {
+  background-color: var(--div-bg);
+  height: 440px;
+  min-width: 350px;
+  margin: auto 0; 
+  padding: 15px 15px;
+}
+
+.user-select {
+  background: var(--div-bg);
+  height: 60px;
+}
+
+.user-select p{
+  color: var(--font-color1);
+  padding-top: 8px;
+  margin-left: 70px;
+}
+.user-select:hover > p{
+  color: var(--font-color2);
+  text-decoration: underline;
+}

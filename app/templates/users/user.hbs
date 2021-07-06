@@ -1,0 +1,31 @@
+{{page-title 'User'}}
+  <div class="container has-text-centered">
+    <div class="column is-3 is-offset-4">
+
+      <LinkTo @route="users">
+        <button class="button mb-2" type="button">
+          Back to users
+        </button>
+      </LinkTo>
+
+      <div class="user-profile">
+
+        <figure class="avatar">
+          <img src={{@model.image}} width="256px" alt="User" />
+        </figure>
+
+        <p class="title has-text-white my-2">
+          {{@model.name}}
+        </p>
+
+        <p class="subtitle has-text-white my-2">
+          Example Value:
+          {{@model.value}}
+        </p>
+
+        {{!-- Place the component to archive/unarchive users here --}}
+
+      </div>
+    </div>
+  </div>
+{{outlet}}
