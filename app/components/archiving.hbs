@@ -1,0 +1,3 @@
+<button class="button mb-2 archive-button" {{on 'click' (fn this.toggleArchived @data @id)}}>
+  {{if @data.archived 'Unarchive' 'Archive'}}
+</button>

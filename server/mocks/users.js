@@ -8,11 +8,26 @@ module.exports = function (app) {
     catches the Update request on a user
     PATCH "localhost:4200/api/users/1"
   */
-  usersRouter.patch('/:id', function (request) {
-    // Update data from the UI
-    const requestBody = request.body;
-    // res.send();
-  });
+    usersRouter.patch('/:id', function (request, res) {
+      // Update data from the UI
+      const { body: currentUser } = request;
+      const { id } = request.params;
+  
+      usersJson.data = usersJson.data.map((user) => {
+        const isUpdateTarget = user.id === id;
+        const updatedUser = {
+          ...user,
+          attributes: {
+            ...user.attributes,
+            ...currentUser,
+          },
+        };
+  
+        return isUpdateTarget ? updatedUser : user;
+      });
+  
+      res.status(200).send('update successful');
+    });
 
   /*
     catches the GET request on a user
@@ -46,7 +61,8 @@ const usersJson = {
     "attributes": {
       "name": "Albert Einstein",
       "image": "/images/Einstein.jpg",
-      "value": "false"
+      "value": "false",
+      "archived": false,
     }
   },
   {
@@ -55,7 +71,8 @@ const usersJson = {
     "attributes": {
       "name": "Walt Disney",
       "image": "/images/Walt.jpg",
-      "value": "false"
+      "value": "false",
+      "archived": false,
     }
   },
   {
@@ -64,7 +81,8 @@ const usersJson = {
     "attributes": {
       "name": "Bruce Lee",
       "image": "/images/Bruce.jpg",
-      "value": "false"
+      "value": "false",
+      "archived": false,
     }
   },
   {
@@ -73,7 +91,8 @@ const usersJson = {
     "attributes": {
       "name": "Neil Armstrong",
       "image": "/images/Neil.jpg",
-      "value": "false"
+      "value": "true",
+      "archived": false,
     }
   }
   ]
