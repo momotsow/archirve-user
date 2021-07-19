@@ -22,9 +22,14 @@
           Example Value:
           {{@model.value}}
         </p>
+        <p class='subtitle has-text-white my-2'>
+          User Archived:
+          {{@model.archived}}
+        </p>
 
-        {{!-- Place the component to archive/unarchive users here --}}
-
+        {{!-- Component to archive/unarchive users --}}
+        
+        <Archiving @data={{@model}} @id={{@model.id}}/>
       </div>
     </div>
   </div>
